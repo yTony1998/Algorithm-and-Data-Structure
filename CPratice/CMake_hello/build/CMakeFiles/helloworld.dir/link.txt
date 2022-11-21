@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/helloworld.dir/hello-world.cpp.o -o helloworld  -Wl,-rpath,/home/b212/Documents/c++书籍/Pratice/Algorithm-and-Data-Structure/CPratice/CMake_hello/build libmessage.so 

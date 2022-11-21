@@ -50,3 +50,52 @@ NOTE:
 
 ``` cmkae --build .```将```ninja```命令封装在一个跨平台接口中
 
+构建和链接静态库和动态库
+---------------------------
+Example
+
+第一步，创建静态库
+```
+add_library(message
+    STATIC
+        Message.hpp
+        Message.cpp
+)
+```
+第二步，创建可执行文件
+```
+add_executable(hello-world hello-word.cpp)
+```
+第三步，将目标库连接到可执行目标
+```
+target_link_libraries(hello-world message)
+```
+
+Notes:
+```add_library()```：将指定的源码编译到库中
+```target_link_libraries()```：将库连接到可执行文件中
+
+```add_library()```：参数
+**STATIC**：创建静态库，编译文件的打包存档
+**SHARED**：创建动态库，动态连接，在运行时加载的库
+**OBJECT**：将```add_library()```中的源码编译到目标文件，没有库，一次性使用
+ 
+ 关于**OBJECT**有意思的用法
+ ```
+ add_library(message-objs
+    OBJECT
+        Message.hpp
+        Message.cpp
+    )
+
+add_library(message-shared
+    SHARED
+        $<TARGET_OBECTS:message-objs>
+    )
+
+add_library(message-static
+    STATIC
+        $<TARGET_OBECTS:message-objs>
+    )
+ ```
+

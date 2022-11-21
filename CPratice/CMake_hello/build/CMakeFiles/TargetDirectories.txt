@@ -1,0 +1,4 @@
+/home/b212/Documents/c++书籍/Pratice/Algorithm-and-Data-Structure/CPratice/CMake_hello/build/CMakeFiles/rebuild_cache.dir
+/home/b212/Documents/c++书籍/Pratice/Algorithm-and-Data-Structure/CPratice/CMake_hello/build/CMakeFiles/edit_cache.dir
+/home/b212/Documents/c++书籍/Pratice/Algorithm-and-Data-Structure/CPratice/CMake_hello/build/CMakeFiles/helloworld.dir
+/home/b212/Documents/c++书籍/Pratice/Algorithm-and-Data-Structure/CPratice/CMake_hello/build/CMakeFiles/message.dir
