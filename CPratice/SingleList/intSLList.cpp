@@ -1,5 +1,5 @@
 #include <iostream>
-#include "intSLList.h"
+#include "intSLList.hpp"
 
 IntSLList::~IntSLList()
 {
@@ -27,38 +27,47 @@ void IntSLList::addToTail(int el)
     else
         head = tail = new IntSLLNode(el);
 }
-int IntSLList::deleteFromHead()
+int* IntSLList::deleteFromHead()
 {
-    int el = head->info;
-    IntSLLNode *tmp = head;
-    if (head == tail)
-        head = tail = 0;
-    else
-        head = head->next;
-    delete tmp;
-    return el;
+    if(!isEmpty())
+    {
+        int *el = new int(head->info);
+        IntSLLNode *tmp = head;
+        if (head == tail)
+            head = tail = 0;
+        else
+            head = head->next;
+        delete tmp;
+        return el;
+    }
+    return 0;
 }
 
-int IntSLList::deleteFromTail()
+int* IntSLList::deleteFromTail()
 {
-    int el = tail->info;
-    
-    if(tail = head)
+    if(!isEmpty())
     {
-        delete head;
-        tail = head = 0;
+        int *el = new int(tail->info);
+        
+        if(tail = head)
+        {
+            delete head;
+            tail = head = 0;
 
+        }
+        else
+        {
+            IntSLLNode *tmp;
+            for(tmp = head; tmp->next != tail; tmp = tmp->next) ;
+            delete tail;
+            tmp->next = 0;
+            tail = tmp;
+        }
+
+        return el;
     }
     else
-    {
-        IntSLLNode *tmp;
-        for(tmp = head; tmp->next != tail; tmp = tmp->next) ;
-        delete tail;
-        tmp->next = 0;
-        tail = tmp;
-    }
-
-    return el;
+        return 0;
 }
 void IntSLList::deleteNode(int el)
 {
@@ -93,6 +102,7 @@ void IntSLList::deleteNode(int el)
 bool IntSLList::isInList(int el) const
 {
     IntSLLNode *tmp;
-    for(tmp = head; tmp != 0 && (tmp->info != el); tmp->next)
-    return tmp !=0;
+    for(tmp = head; tmp != 0 && (tmp->info != el); tmp->next);
+    // std::cout<< (tmp!=0)<<std::endl;
+    return tmp != 0;
 }

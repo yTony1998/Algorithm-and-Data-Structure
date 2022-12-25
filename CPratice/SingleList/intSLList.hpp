@@ -26,11 +26,11 @@ private:
     
     IntSLLNode *head, *tail;
 public:
-    intSLList(/* args */)
+    IntSLList(/* args */)
     {
         head = tail = 0;
     }
-    ~intSLList();
+    ~IntSLList();
 
     int isEmpty()
     {
@@ -38,8 +38,8 @@ public:
     }
     void addToHead(int);
     void addToTail(int);
-    int deleteFromHead();
-    int deleteFromTail();
+    int* deleteFromHead();
+    int* deleteFromTail();
     void deleteNode(int);
     bool isInList(int) const;
 };
@@ -49,4 +49,4 @@ public:
 
 
 
-#endif INT_LINKED_LIST
+#endif 
