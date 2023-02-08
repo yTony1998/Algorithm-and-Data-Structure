@@ -6,7 +6,7 @@ template <class Type> class Stack;
 
 template <class Type> class StackNode
 {
-friend class Stack <Type>
+friend class Stack <Type>;
 private:
     Type data;
     StackNode<Type> *link;
